@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1A2B-ProMax Guessing Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            width: 90%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .log {
+            text-align: left;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+        .log p {
+            margin: 5px 0;
+        }
+    /* 胜利信息样式 */
+    .win-message {
+        margin-top: 20px;
+        font-size: 3rem; /* 超大字体 */
+        font-weight: bold;
+        text-align: center;
+        color: white;
+        background: linear-gradient(90deg, #ff0000, #ff7300, #ffeb00, #47ff00, #00d4ff, #7a00ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; /* 使渐层只填充文字 */
+        animation: gradient-flow 3s infinite linear; /* 动态渐层流动 */
+    }
+
+    /* 动态渐层动画 */
+    @keyframes gradient-flow {
+        0% { background-position: 0%; }
+        100% { background-position: 100%; }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>1A2B Guessing Game</h1>
+        <!-- 动态生成数字位数的选择器 -->
+        <label for="digitSelect">Select digits (length of the number): </label>
+        <select id="digitSelect" onchange="updateDigits()"></select>
+        <p>Guess the <span id="digitLength">4</span>-character number (Base 32). Valid characters: 0-9, A-V.</p>
+        <input type="text" id="guessInput" placeholder="Enter your guess here">
+        <button onclick="submitGuess()">Submit Guess</button>
+        <button onclick="startNewGame()">Start New Game</button>
+        <div class="log" id="log"></div>
+        <div id="winMessage" class="win-message"></div>
+    </div>
+    
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
