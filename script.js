@@ -3,7 +3,12 @@ let riddle = [];
 let guesses = 0;
 let digits = 4; // 默认数字位数
 const symbols = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".slice(0, 32); // Base32字符集
-
+document.getElementById("guessInput").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        submitGuess(); // 按下 Enter 键时提交猜测
+        event.preventDefault(); // 阻止默认行为（如表单提交）
+    }
+});
 // 动态生成下拉菜单选项
 function populateDigitSelect() {
     const digitSelect = document.getElementById("digitSelect");
